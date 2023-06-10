@@ -7,9 +7,9 @@ import uuid
 class BaseModel(object):
     def __init__(self):
         """Initilizing the attributes"""
-            self.id = str(uuid.uuid4())
-            self.created_at = datetime.today()
-            self.updated_at = datetime.today()
+        self.id = str(uuid.uuid4())
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
 
     def __str__(self):
         """Return formated string"""
@@ -17,7 +17,7 @@ class BaseModel(object):
                          self.id, self.__dict__)
     def save(self):
         """Updates update_at with current time"""
-        return self.updated_at = datetime.today()
+        self.updated_at = datetime.today()
 
     def to_dict(self):
         """Dict of all keys and values"""
