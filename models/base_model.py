@@ -2,7 +2,7 @@
 """The base model for the clone"""
 from datetime import datetime
 import uuid
-
+from models import storage
 
 class BaseModel(object):
     def __init__(self, *args, **kwargs):
@@ -19,6 +19,7 @@ class BaseModel(object):
             self.id = str(uuid.uuid4())
             self.created_at = datetime.today()
             self.updated_at = datetime.today()
+            storage.new(self)
 
     def __str__(self):
         """Return formated string"""
@@ -27,6 +28,7 @@ class BaseModel(object):
     def save(self):
         """Updates update_at with current time"""
         self.updated_at = datetime.today()
+        storage.save()
 
     def to_dict(self):
         """Dict of all keys and values"""
