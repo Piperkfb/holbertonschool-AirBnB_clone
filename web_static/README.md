@@ -1,0 +1,1 @@
+static shock static web
